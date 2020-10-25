@@ -1,5 +1,4 @@
 <template>
-
   <section class="src-components-usuarios">
     <div class="container mt-top">
       <table class="table table-striped">
@@ -11,12 +10,19 @@
             <td>Email</td>
           </tr>
         </thead>
-        <tbody>
+        <tbody v-if="usuarios.length > 0">
           <tr v-for="(dato, i) in usuarios" :key="i">
               <td>{{ dato.id }}</td>
               <td>{{ dato.nombre }}</td>
               <td>{{ dato.edad }}</td>
               <td>{{ dato.email }}</td>
+          </tr>
+        </tbody>
+        <tbody v-else-if="usuarios.length == 0">
+          <tr>
+            <td colspan="4">
+              <div class="alert alert-danger">No hay usuarios disponibles</div>
+            </td>
           </tr>
         </tbody>
 
